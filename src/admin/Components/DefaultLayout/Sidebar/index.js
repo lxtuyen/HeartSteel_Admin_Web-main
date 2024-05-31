@@ -46,37 +46,12 @@ function Sidebar() {
                                     </Link>
                                 </nav>
                             </div>
-                            <Link
-                                className="nav-link collapsed"
-                                href="/"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#collapseLayouts"
-                                aria-expanded="false"
-                                aria-controls="collapseLayouts"
-                            >
+                            <Link className="nav-link" to="/categories">
                                 <div className="sb-nav-link-icon">
                                     <i className="fas fa-book-open"></i>
                                 </div>
-                                Albums
-                                <div className="sb-sidenav-collapse-arrow">
-                                    <i className="fas fa-angle-down"></i>
-                                </div>
+                                Categories
                             </Link>
-                            <div
-                                className="collapse"
-                                id="collapseLayouts"
-                                aria-labelledby="headingOne"
-                                data-bs-parent="#sidenavAccordion"
-                            >
-                                <nav className="sb-sidenav-menu-nested nav">
-                                    <Link className="nav-link" to="/addAlbum">
-                                        Add Album
-                                    </Link>
-                                    <Link className="nav-link" to="/albums">
-                                        All Albums
-                                    </Link>
-                                </nav>
-                            </div>
                             <Link className="nav-link" to="/genres">
                                 <div className="sb-nav-link-icon">
                                     <i className="fas fa-book-open"></i>

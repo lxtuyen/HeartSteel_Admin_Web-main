@@ -7,33 +7,12 @@ import classNames from 'classnames';
 import styled from '../AllMusics/AllMusics.scss';
 import MultiChoice from 'admin/Components/MultipleChoice';
 import { app } from '../../../firebase/firebase';
-import { Subtitles } from '@mui/icons-material';
 function Tracks() {
     const cx = classNames.bind(styled);
     const [obj, setObj] = useState([]);
     const [music, setMusic] = useState([]);
     const [value, setValue] = useState([]);
     const { id } = useParams();
-    //get data tracks
-    useEffect(() => {
-        const getData = async () => {
-            const db = getDatabase(app);
-            const dbRef = ref(db, 'albums/tracks');
-            const snapshot = await get(dbRef);
-            if (snapshot.exists()) {
-                const myData = snapshot.val();
-                const temporaryArray = Object.keys(myData).map((myFireId) => {
-                    return {
-                        ...myData[myFireId],
-                        _id: myFireId,
-                    };
-                });
-                setObj(temporaryArray);
-            } else {
-            }
-        };
-        getData();
-    }, []);
     //get data musics
     useEffect(() => {
         const getData = async () => {
@@ -55,9 +34,29 @@ function Tracks() {
         };
         getData();
     }, []);
-    const handleDelete = async (id) => {
+    //get data tracks
+    useEffect(() => {
+        const getData = async () => {
+            const db = getDatabase(app);
+            const dbRef = ref(db, `categories/${id}/tracks`);
+            const snapshot = await get(dbRef);
+            if (snapshot.exists()) {
+                const myData = snapshot.val();
+                const temporaryArray = Object.keys(myData).map((myFireId) => {
+                    return {
+                        ...myData[myFireId],
+                        _id: myFireId,
+                    };
+                });
+                setObj(temporaryArray);
+            }
+        };
+        getData();
+
+    }, [id]);
+    const handleDelete = async (idTrack) => {
         const db = getDatabase(app);
-        const dbRef = ref(db, 'albums/tracks/' + id);
+        const dbRef = ref(db, `categories/${id}/tracks/${idTrack}`);
         await remove(dbRef);
         window.location.reload();
     };
@@ -74,16 +73,15 @@ function Tracks() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const db = getDatabase(app);
-        const newDocRef = push(ref(db, `albums/${id}/tracks`));
+        const newDocRef = push(ref(db, `categories/${id}/tracks`));
         const musicData = await getMusicData(value);
+        console.log(musicData);
         set(newDocRef, {
             musicId: value.join(", "),
             audio: musicData?.audio,
-            duration: musicData?.duration,
             genre: musicData?.genre,
             image: musicData?.image,
             lyrics: musicData?.lyrics,
-            subtitle: musicData?.subtitle,
             tag: musicData?.tag,
             title: musicData?.title,
         })
@@ -99,7 +97,7 @@ function Tracks() {
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 className="mt-4"> Tracks Of Albums </h1>
+                    <h1 className="mt-4"> Tracks Of Categories</h1>
                     <div className="card mb-4">
                         <div className="card-header">
                             <i className="fas fa-table me-1"></i>

@@ -31,7 +31,7 @@ function Genres() {
     const onFinish = async (values) => {
       const db = getDatabase(app);
         const newDocRef = push(ref(db, 'genres'));
-        const addTab = values.genres.map(async (value) => {
+        values.genres.map(async (value) => {
         set(newDocRef, value)
             .then(() => {
                 toast.success('Successful');
