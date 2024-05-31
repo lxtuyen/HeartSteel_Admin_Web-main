@@ -81,6 +81,7 @@ function Tracks() {
             audio: musicData?.audio,
             genre: musicData?.genre,
             image: musicData?.image,
+            author: musicData?.author,
             lyrics: musicData?.lyrics,
             tag: musicData?.tag,
             title: musicData?.title,
