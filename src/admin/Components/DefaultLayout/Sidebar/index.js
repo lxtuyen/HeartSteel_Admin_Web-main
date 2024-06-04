@@ -46,6 +46,37 @@ function Sidebar() {
                                     </Link>
                                 </nav>
                             </div>
+                            <Link
+                                className="nav-link collapsed"
+                                href="/"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseLayouts"
+                                aria-expanded="false"
+                                aria-controls="collapseLayouts1"
+                            >
+                                <div className="sb-nav-link-icon">
+                                    <i className="fas fa-book-open"></i>
+                                </div>
+                                Reels
+                                <div className="sb-sidenav-collapse-arrow">
+                                    <i className="fas fa-angle-down"></i>
+                                </div>
+                            </Link>
+                            <div
+                                className="collapse"
+                                id="collapseLayouts1"
+                                aria-labelledby="headingOne"
+                                data-bs-parent="#sidenavAccordion"
+                            >
+                                <nav className="sb-sidenav-menu-nested nav">
+                                    <Link className="nav-link" to="/addReel">
+                                        Add Reel
+                                    </Link>
+                                    <Link className="nav-link" to="/reels">
+                                        Reels
+                                    </Link>
+                                </nav>
+                            </div>
                             <Link className="nav-link" to="/categories">
                                 <div className="sb-nav-link-icon">
                                     <i className="fas fa-book-open"></i>

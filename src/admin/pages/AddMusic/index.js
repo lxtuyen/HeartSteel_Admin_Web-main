@@ -7,14 +7,13 @@ import MultiChoice from 'admin/Components/MultipleChoice';
 import { app } from '../../../firebase/firebase';
 
 
-function AddBook() {
+function AddMusic() {
     const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [audio, setAudio] = useState('');
     const [image, setImage] = useState('');
     const [author, setAuthor] = useState('');
     const [tag, setTag] = useState([]);
-    const [duration, setDuration] = useState('');
     const [lyrics, setLyrics] = useState("");
     const [genre, setGenre] = useState([]);
     const [value, setValue] = useState([]);
@@ -31,7 +30,6 @@ function AddBook() {
             author: author,
             tag: tabData.title,
             likes: '',
-            duration: duration,
             audio: audio,
             image: image,
             genre: genresData.title,
@@ -193,18 +191,6 @@ function AddBook() {
                                     setLyrics(e.target.value);
                                 }}
                             ></textarea>
-
-                            <label className="form-label mt-3" name="Duration">
-                                {' '}
-                                Duration:{' '}
-                            </label>
-                            <input
-                                type="text"
-                                className="form-control display-2"
-                                onChange={(e) => {
-                                    setDuration(e.target.value);
-                                }}
-                            />
                             <button className="btn btn-primary mt-3" type="submit" onClick={handleSubmit}>
                                 Submit form
                             </button>
@@ -216,4 +202,4 @@ function AddBook() {
     );
 }
 
-export default AddBook;
+export default AddMusic;

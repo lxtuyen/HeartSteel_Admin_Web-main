@@ -7,6 +7,9 @@ import Tracks from 'admin/pages/Tracks';
 import UpdateMusic from 'admin/pages/UpdateMusic';
 import Genre from 'admin/pages/Genre';
 import Tag from 'admin/pages/Tag';
+import Users from 'admin/pages/User';
+import Reels from 'admin/pages/Reels';
+import AddReel from 'admin/pages/AddReel';
 
 const publicRoutes = [];
 const privareRoutes = [
@@ -18,6 +21,8 @@ const privareRoutes = [
     { path: '/categories', component: Categories },
     { path: '/genres', component: Genre },
     { path: '/tag', component: Tag },
-
+    { path: '/users', component: Users },
+    { path: '/reels', component: Reels },
+    { path: '/addReel', component: AddReel },
 ];
 export { publicRoutes, privareRoutes };

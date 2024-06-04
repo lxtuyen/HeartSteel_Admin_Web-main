@@ -13,7 +13,6 @@ function UpdateMusic() {
     const [image, setImage] = useState('');
     const [author, setAuthor] = useState('');
     const [tag, setTag] = useState([]);
-    const [duration, setDuration] = useState('');
     const [lyrics, setLyrics] = useState("");
     const { id } = useParams();
     const [genre, setGenre] = useState([]);
@@ -29,7 +28,6 @@ function UpdateMusic() {
                   const targetObject = snapshot.val();
                   setTitle(targetObject.title);
                   setAuthor(targetObject.author);
-                  setDuration(targetObject.duration);
                   setLyrics(targetObject.lyrics);
                 } else {
                   alert("error");
@@ -87,7 +85,6 @@ function UpdateMusic() {
             title: title,
             author: author,
             tag: tabData.title,
-            duration: duration||"",
             audio: audio||"",
             image: image,
             genre: musicData.title,
@@ -180,9 +177,6 @@ function UpdateMusic() {
                                 Tag:{' '}
                             </label>
                             <MultiChoice setData={(tag) => setValueTag(tag)} data={tag} />
-
-                            <label className="form-label mt-3" name="duration">Duration: </label>
-                            <input type="text" className="form-control display-2" value={duration} onChange={(e) => { setDuration(e.target.value) }} />
 
                             <label className="form-label mt-3" name="lyrics">Lyrics: </label>
                             <textarea className="form-control display-2" value={lyrics} onChange={(e) => { setLyrics(e.target.value) }} />
