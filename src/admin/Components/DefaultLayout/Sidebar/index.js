@@ -50,7 +50,7 @@ function Sidebar() {
                                 className="nav-link collapsed"
                                 href="/"
                                 data-bs-toggle="collapse"
-                                data-bs-target="#collapseLayouts"
+                                data-bs-target="#collapseLayouts1"
                                 aria-expanded="false"
                                 aria-controls="collapseLayouts1"
                             >
@@ -94,6 +94,12 @@ function Sidebar() {
                                     <i className="fas fa-book-open"></i>
                                 </div>
                                 Tags
+                            </Link>
+                            <Link className="nav-link" to="/users">
+                                <div className="sb-nav-link-icon">
+                                    <i className="fas fa-book-open"></i>
+                                </div>
+                                Users
                             </Link>
                         </div>
                     </div>

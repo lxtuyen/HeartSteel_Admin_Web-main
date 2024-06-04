@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { getDatabase, ref, set, push, get } from 'firebase/database';
+import { getDatabase, ref, set, push } from 'firebase/database';
 
 import { app } from '../../../firebase/firebase';
 

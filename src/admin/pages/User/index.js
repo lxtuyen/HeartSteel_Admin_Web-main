@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, get, remove, push, set } from 'firebase/database';
-import { toast } from 'react-toastify';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Space } from 'antd';
+import { getDatabase, ref, get } from 'firebase/database';
 
 import { app } from '../../../firebase/firebase';
 

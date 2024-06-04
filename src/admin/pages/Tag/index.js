@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Space } from 'antd';
 import { toast } from 'react-toastify';
@@ -33,7 +32,7 @@ function Tab() {
     const onFinish = async (values) => {
         const db = getDatabase(app);
         const newDocRef = push(ref(db, 'tabs'));
-        const addTab = values.tabs.map(async (value) => {
+        values.tabs.map(async (value) => {
         set(newDocRef, value)
             .then(() => {
                 toast.success('Successful');

@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, get, remove, push, set } from 'firebase/database';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 import { Button, Form, Input, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { toast } from 'react-toastify';
 
-import styled from '../AllMusics/AllMusics.scss';
 import { app } from '../../../firebase/firebase';
 
 function Categories() {
-    const cx = classNames.bind(styled);
     const [obj, setObj] = useState([]);
 
     useEffect(() => {
